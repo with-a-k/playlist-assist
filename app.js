@@ -9,7 +9,7 @@ var logger = require('morgan');
 
 const cookieSession = require('cookie-session')
 const passport = require('passport');
-require('./scripts/passport')
+require('./scripts/passport');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
