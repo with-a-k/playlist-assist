@@ -40,6 +40,7 @@ app.use('/auth', authRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
+  console.log('Route attempted was ' + req.url);
   next(createError(404));
 });
 
