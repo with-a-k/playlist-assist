@@ -7,10 +7,17 @@
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
+    "cookie-session": "^1.4.0",
     "debug": "~2.6.9",
+    "dotenv": "^8.2.0",
     "ejs": "~2.6.1",
     "express": "~4.16.1",
+    "express-oauth-server": "^2.0.0",
     "http-errors": "~1.6.3",
-    "morgan": "~1.9.1"
+    "lodash": "^4.17.20",
+    "mongoose": "^5.10.15",
+    "morgan": "~1.9.1",
+    "passport": "^0.4.1",
+    "passport-spotify": "^1.1.0"
   }
 }
