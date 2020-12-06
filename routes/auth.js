@@ -11,10 +11,11 @@ router.get('/spotify', passport.authenticate('spotify'));
 router.get('/spotify/callback', passport.authenticate('spotify',
   {
     scope: ['playlist-read-private', 'playlist-read-collaborative',
-      'playlist-modify-public', 'playlist-modify-private'], 
+      'playlist-modify-public', 'playlist-modify-private'],
     failureRedirect: '/auth/error'
   }),
 function(req, res) {
+  req.session['token'] = req.query.code;
   res.redirect('/loadPlaylist');
 });
 

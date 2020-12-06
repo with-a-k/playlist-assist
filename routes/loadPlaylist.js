@@ -3,13 +3,14 @@ var router = express.Router();
 
 function checkAuthentication(req, res, next) {
   if (req.isAuthenticated()) {
-    return next;
+    next();
+  } else {
+    res.redirect('/');
   }
-  res.redirect('/');
 }
 
 router.get('/', checkAuthentication, function(req, res, next) {
-  res.render('loadPlaylist', { title: 'Playlist Assist', user: req.session.passport.user });
+  res.render('loadPlaylist', { title: 'Playlist Assist', user: req.session.passport.user, token: req.session.token });
 });
 
 module.exports = router;
