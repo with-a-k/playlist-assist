@@ -10,7 +10,8 @@ function checkAuthentication(req, res, next) {
 }
 
 router.get('/', checkAuthentication, function(req, res, next) {
-  res.render('loadPlaylist', { title: 'Playlist Assist', user: req.session.passport.user, token: req.session.token });
+  console.log(req.session.access);
+  res.render('loadPlaylist', { title: 'Playlist Assist', user: req.session.passport.user, token: req.session.access });
 });
 
 module.exports = router;
