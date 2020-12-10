@@ -64,7 +64,7 @@ function updateUserTokens(id, access, refresh) {
   });
 }
 
-async function retrieveUserTokens(spotify_id) {
+function retrieveUserTokens(spotify_id, callback) {
   console.log('Start of retrieveUserTokens');
   if (spotify_id == "" || typeof spotify_id === undefined) {
     console.log('No ID provided.');
@@ -76,10 +76,11 @@ async function retrieveUserTokens(spotify_id) {
   pool.query(select, params, function(err, result) {
     if (err) {
       console.log('Query error!');
-      return err;
+      console.log(err);
+      callback(err, null);
     } else {
-      console.log('Adding tokens to session');
-      return result.rows[0];
+      console.log('Tokens retrieved.');
+      callback(null, result.rows[0]);
     }
   });
 }
