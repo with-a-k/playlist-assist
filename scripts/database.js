@@ -25,6 +25,7 @@ async function findOrCreateUser(spotify_id) {
 
     if (result.rows.length === 0) {
       const insert = "INSERT INTO users (spotify_id) VALUES ($1)";
+      console.log('Inserting...');
       pool.query(insert, params, function(err, insertion) {
         if (err) {
           console.log('Query error!');
@@ -34,7 +35,7 @@ async function findOrCreateUser(spotify_id) {
 
         console.log('Inserted.');
         console.log(insertion);
-        return insertion;
+        return insertion.insertId;
       });
     } else {
       return 0;
@@ -49,7 +50,7 @@ function updateUserTokens(id, access, refresh) {
   const accessParams = [id, access];
   const refreshParams = [id, refresh];
 
-  pool.query(updateAccess, params, function(err, access) {
+  pool.query(updateAccess, accessParams, function(err, access) {
     if (err) {
       console.log('Query error!');
       console.log(err);
@@ -58,7 +59,7 @@ function updateUserTokens(id, access, refresh) {
     return 200;
   });
 
-  pool.query(updateRefresh, params, function(err, access) {
+  pool.query(updateRefresh, refreshParams, function(err, access) {
     if (err) {
       console.log('Query error!');
       console.log(err);
