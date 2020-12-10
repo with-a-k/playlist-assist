@@ -45,6 +45,7 @@ async function findOrCreateUser(spotify_id) {
 }
 
 function updateUserTokens(id, access, refresh) {
+  console.log('User ID: ' + id);
   const updateAccess = "UPDATE users SET access_token = $2 WHERE id = $1";
   const updateRefresh = "UPDATE users SET refresh_token = $2 WHERE id = $1";
   const accessParams = [id, access];
