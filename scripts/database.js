@@ -69,6 +69,7 @@ function updateUserTokens(id, access, refresh) {
 }
 
 function retrieveUserTokens(spotify_id) {
+  console.log('Retrieving tokens');
   if (spotify_id == "" || typeof spotify_id === undefined) {
     console.log('No ID provided.');
   }
@@ -81,6 +82,7 @@ function retrieveUserTokens(spotify_id) {
       console.log('Query error!');
       console.log(err);
     } else {
+      console.log('Returning tokens');
       return result.rows[0];
     }
   });

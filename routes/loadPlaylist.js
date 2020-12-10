@@ -11,7 +11,9 @@ function checkAuthentication(req, res, next) {
 }
 
 router.get('/', checkAuthentication, async function(req, res, next) {
+  console.log('Getting /loadPlaylist');
   req.session.access = await database.retrieveUserTokens(req.session.passport.user.id);
+  console.log('Rendering /loadPlaylist');
   res.render('loadPlaylist', {
     title: 'Playlist Assist',
     user: req.session.passport.user,
