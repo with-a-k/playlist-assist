@@ -3,12 +3,11 @@ const { Pool } = require('pg');
 const connectionString = process.env.DATABASE_URL;
 const pool = new Pool({connectionString: connectionString});
 
-function findOrCreateUser(spotify_id, callback) {
+function findOrCreateUser(spotify_id) {
   console.log(spotify_id);
 
-  if (spotify_id == "" || typeof spotify_id != undefined) {
+  if (spotify_id == "" || typeof spotify_id === undefined) {
     console.log('No ID provided.');
-    callback();
   }
 
   const select = "SELECT id FROM users WHERE spotify_id = $1";
@@ -18,7 +17,7 @@ function findOrCreateUser(spotify_id, callback) {
     if (err) {
       console.log('Query error!');
       console.log(err);
-      callback(err, null);
+      return;
     }
 
     console.log('Got results.');
@@ -30,13 +29,13 @@ function findOrCreateUser(spotify_id, callback) {
         if (err) {
           console.log('Query error!');
           console.log(err);
-          callback(err, null);
+          return;
         }
 
         console.log('Inserted.');
       });
     } else {
-      callback();
+      return;
     }
   });
 
