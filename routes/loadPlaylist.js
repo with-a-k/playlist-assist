@@ -15,7 +15,7 @@ router.get('/', checkAuthentication,
   res.render('loadPlaylist', {
     title: 'Playlist Assist',
     user: req.session.passport.user,
-    tokens: req.session.access
+    tokens: req.session.tokens
   });
 });
 
