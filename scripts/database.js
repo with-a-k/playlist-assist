@@ -3,7 +3,7 @@ const { Pool } = require('pg');
 const connectionString = process.env.DATABASE_URL;
 const pool = new Pool({connectionString: connectionString});
 
-async function findOrCreateUser(spotify_id) {
+async function findOrCreateUser(spotify_id, callback) {
   console.log(spotify_id);
 
   if (spotify_id == "" || typeof spotify_id === undefined) {
@@ -17,7 +17,7 @@ async function findOrCreateUser(spotify_id) {
     if (err) {
       console.log('Query error!');
       console.log(err);
-      return 0;
+      callback(0);
     }
 
     console.log('Got results.');
@@ -30,16 +30,16 @@ async function findOrCreateUser(spotify_id) {
         if (err) {
           console.log('Query error!');
           console.log(err);
-          return 0;
+          callback(0);
         }
 
         console.log('Inserted.');
         console.log(insertion);
-        return insertion.insertId;
+        callback(insertion.insertId);
       });
     } else {
       console.log('Returning ' + result.rows[0].id);
-      return result.rows[0].id;
+      callback(result.rows[0].id);
     }
   });
 
