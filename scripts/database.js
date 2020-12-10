@@ -68,9 +68,8 @@ function updateUserTokens(id, access, refresh) {
   });
 }
 
-async function retrieveUserTokens(req) {
+async function retrieveUserTokens(spotify_id) {
   console.log('Retrieving tokens');
-  spotify_id = req.session.passport.user.id;
   if (spotify_id == "" || typeof spotify_id === undefined) {
     console.log('No ID provided.');
   }
@@ -84,7 +83,7 @@ async function retrieveUserTokens(req) {
       console.log(err);
     } else {
       console.log('Adding tokens to session');
-      req.session.tokens = result.rows[0];
+      return result.rows[0];
     }
   });
 }
