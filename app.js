@@ -14,7 +14,8 @@ const database = require('./scripts/database');
 
 var indexRouter = require('./routes/index');
 var authRouter = require('./routes/auth');
-var loadRouter = require('./routes/loadPlaylist')
+var loadRouter = require('./routes/loadPlaylist');
+var tokenRouter = require('./routes/tokens');
 
 var app = express();
 
@@ -38,6 +39,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/loadPlaylist', loadRouter);
 app.use('/auth', authRouter);
+app.use('/tokens', tokenRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
