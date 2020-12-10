@@ -12,7 +12,11 @@ function checkAuthentication(req, res, next) {
 
 router.get('/', checkAuthentication, function(req, res, next) {
   req.session.access = database.retrieveUserTokens(req.session.passport.user.id);
-  res.render('loadPlaylist', { title: 'Playlist Assist', user: req.session.passport.user, token: req.session.access });
+  res.render('loadPlaylist', {
+    title: 'Playlist Assist',
+    user: req.session.passport.user,
+    tokens: req.session.access
+  });
 });
 
 module.exports = router;

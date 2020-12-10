@@ -81,8 +81,7 @@ function retrieveUserTokens(spotify_id) {
       console.log('Query error!');
       console.log(err);
     } else {
-      console.log(result);
-      return result;
+      return result.rows[0];
     }
   });
 }

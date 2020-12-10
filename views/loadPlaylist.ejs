@@ -15,7 +15,8 @@
     <p><%= user.id %></p>
     <script>
       $.when($.ready).then(function() {
-        getPlaylists('<%= user.id %>', '<%= token %>');
+        console.log('<%= tokens.access_token %>')
+        getPlaylists('<%= user.id %>', '<%= tokens.access_token %>');
       });
     </script>
   </body>
