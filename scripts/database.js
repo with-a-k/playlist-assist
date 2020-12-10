@@ -87,4 +87,4 @@ function retrieveUserTokens(spotify_id) {
   });
 }
 
-module.exports = { findOrCreateUser, updateUserTokens };
+module.exports = { findOrCreateUser, updateUserTokens, retrieveUserTokens };
