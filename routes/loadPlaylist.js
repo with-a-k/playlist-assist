@@ -10,8 +10,8 @@ function checkAuthentication(req, res, next) {
   }
 }
 
-router.get('/', checkAuthentication, function(req, res, next) {
-  req.session.access = database.retrieveUserTokens(req.session.passport.user.id);
+router.get('/', checkAuthentication, async function(req, res, next) {
+  req.session.access = await database.retrieveUserTokens(req.session.passport.user.id);
   res.render('loadPlaylist', {
     title: 'Playlist Assist',
     user: req.session.passport.user,
