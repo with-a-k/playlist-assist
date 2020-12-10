@@ -5,7 +5,12 @@ const pool = new Pool({connectionString: connectionString});
 
 function findOrCreateUser(spotify_id, callback) {
   console.log(spotify_id);
-  const select = "SELECT id FROM users WHERE spotify_id = $1::text";
+
+  if (spotify_id == "") {
+    console.log('No ID provided.');
+  }
+
+  const select = "SELECT id FROM users WHERE spotify_id = $1";
   const params = [spotify_id];
 
   pool.query(select, params, function(err, result) {
@@ -27,7 +32,7 @@ function findOrCreateUser(spotify_id, callback) {
           callback(err, null);
         }
 
-        console.log('Inserted.')
+        console.log('Inserted.');
       });
     } else {
       callback();
