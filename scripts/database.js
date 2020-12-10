@@ -4,8 +4,6 @@ const connectionString = process.env.DATABASE_URL;
 const pool = new Pool({connectionString: connectionString});
 
 async function findOrCreateUser(spotify_id, callback) {
-  console.log(spotify_id);
-
   if (spotify_id == "" || typeof spotify_id === undefined) {
     console.log('No ID provided.');
   }
@@ -38,7 +36,6 @@ async function findOrCreateUser(spotify_id, callback) {
         callback(insertion.insertId);
       });
     } else {
-      console.log('Returning ' + result.rows[0].id);
       callback(result.rows[0].id);
     }
   });
@@ -68,6 +65,25 @@ function updateUserTokens(id, access, refresh) {
       return 500;
     }
     return 200;
+  });
+}
+
+function retrieveUserTokens(spotify_id) {
+  if (spotify_id == "" || typeof spotify_id === undefined) {
+    console.log('No ID provided.');
+  }
+
+  const select = "SELECT access_token, refresh_token FROM users WHERE spotify_id = $1";
+  const params = [spotify_id];
+
+  pool.query(select, params, function(err, result) {
+    if (err) {
+      console.log('Query error!');
+      console.log(err);
+    } else {
+      console.log(result);
+      return result;
+    }
   });
 }
 
