@@ -38,6 +38,7 @@ async function findOrCreateUser(spotify_id) {
         return insertion.insertId;
       });
     } else {
+      console.log('Returning ' + result.rows[0].id);
       return result.rows[0].id;
     }
   });
