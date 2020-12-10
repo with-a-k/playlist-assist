@@ -69,7 +69,6 @@ function updateUserTokens(id, access, refresh) {
 }
 
 async function retrieveUserTokens(spotify_id) {
-  console.log('Retrieving tokens');
   if (spotify_id == "" || typeof spotify_id === undefined) {
     console.log('No ID provided.');
   }

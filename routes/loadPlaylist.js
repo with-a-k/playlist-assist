@@ -12,9 +12,6 @@ function checkAuthentication(req, res, next) {
 
 router.get('/', checkAuthentication,
   function(req, res, next) {
-    req.session.tokens = database.retrieveUserTokens(req.session.passport.user.id);
-  },
-  function(req, res, next) {
   res.render('loadPlaylist', {
     title: 'Playlist Assist',
     user: req.session.passport.user,
