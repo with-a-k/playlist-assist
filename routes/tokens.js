@@ -11,9 +11,13 @@ function checkAuthentication(req, res, next) {
 }
 
 function addTokensToSession(req, res, next) {
+  console.log('Beginning of addTokensToSession middleware');
   database.retrieveUserTokens(req.session.passport.user.id)
   .then((tokens) => {
+    console.log('We got ' + tokens);
     req.session.tokens = tokens;
+    console.log('State of the Session:');
+    console.log(req.session);
     next();
   });
 }

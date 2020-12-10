@@ -18,9 +18,6 @@ async function findOrCreateUser(spotify_id, callback) {
       callback(0);
     }
 
-    console.log('Got results.');
-    console.log(JSON.stringify(result.rows));
-
     if (result.rows.length === 0) {
       const insert = "INSERT INTO users (spotify_id) VALUES ($1)";
       console.log('Inserting...');
@@ -43,7 +40,6 @@ async function findOrCreateUser(spotify_id, callback) {
 }
 
 function updateUserTokens(id, access, refresh) {
-  console.log('User ID: ' + id);
   const updateAccess = "UPDATE users SET access_token = $2 WHERE id = $1";
   const updateRefresh = "UPDATE users SET refresh_token = $2 WHERE id = $1";
   const accessParams = [id, access];
@@ -69,6 +65,7 @@ function updateUserTokens(id, access, refresh) {
 }
 
 async function retrieveUserTokens(spotify_id) {
+  console.log('Start of retrieveUserTokens');
   if (spotify_id == "" || typeof spotify_id === undefined) {
     console.log('No ID provided.');
   }
