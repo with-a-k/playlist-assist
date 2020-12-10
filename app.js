@@ -10,6 +10,8 @@ var logger = require('morgan');
 const passport = require('passport');
 require('./scripts/passport');
 
+const database = require('./scripts/database');
+
 var indexRouter = require('./routes/index');
 var authRouter = require('./routes/auth');
 var loadRouter = require('./routes/loadPlaylist')
