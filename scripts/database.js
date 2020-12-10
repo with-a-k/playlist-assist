@@ -17,6 +17,21 @@ function findOrCreateUser(spotify_id, callback) {
 
     console.log('Got results.');
     console.log(JSON.stringify(result.rows));
+
+    if (result.rows.length === 0) {
+      const insert = "INSERT INTO users (spotify_id) VALUES ($1)";
+      pool.query(insert, params, function(err, result) {
+        if (err) {
+          console.log('Query error!');
+          console.log(err);
+          callback(err, null);
+        }
+
+        console.log('Inserted.')
+      });
+    } else {
+      callback();
+    }
   });
 
 }
