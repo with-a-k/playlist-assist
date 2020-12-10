@@ -19,7 +19,8 @@ passport.use(new SpotifyStrategy({
   callbackURL: "https://immense-coast-83178.herokuapp.com/auth/spotify/callback"
 },
 function(accessToken, refreshToken, profile, done) {
-  database.findOrCreateUser(profile.user_id, null);
+  console.log(profile);
+  database.findOrCreateUser(profile.user.id, null);
   return done(null, profile);
 }
 ));

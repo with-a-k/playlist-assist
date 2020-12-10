@@ -6,8 +6,9 @@ const pool = new Pool({connectionString: connectionString});
 function findOrCreateUser(spotify_id, callback) {
   console.log(spotify_id);
 
-  if (spotify_id == "") {
+  if (spotify_id == "" || typeof spotify_id != undefined) {
     console.log('No ID provided.');
+    callback();
   }
 
   const select = "SELECT id FROM users WHERE spotify_id = $1";
