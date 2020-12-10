@@ -23,6 +23,7 @@ function addTokensToSession(req, res, next) {
 router.get('/', checkAuthentication,
   addTokensToSession,
   function(req, res, next) {
+    console.log(req.session.tokens);
     res.redirect('/loadPlaylist');
   }
 );
