@@ -15,7 +15,7 @@ router.get('/spotify/callback', passport.authenticate('spotify',
     failureRedirect: '/auth/error'
   }),
 function(req, res) {
-  res.redirect('/loadPlaylist');
+  res.redirect('/tokens');
 });
 
 module.exports = router;

@@ -1,0 +1,20 @@
+var express = require('express');
+var router = express.Router();
+const database = require('../scripts/database');
+
+function checkAuthentication(req, res, next) {
+  if (req.isAuthenticated()) {
+    next();
+  } else {
+    res.redirect('/');
+  }
+}
+
+router.get('/', checkAuthentication,
+  function(req, res, next) {
+    console.log('Retrieving tokens...');
+    res.session.tokens = database.retrieveUserTokens(req.session.passport.user.id);
+  }
+);
+
+module.exports = router;
