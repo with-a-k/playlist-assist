@@ -43,7 +43,7 @@ async function findOrCreateUser(spotify_id) {
 
 }
 
-async function updateUserTokens(id, access, refresh) {
+function updateUserTokens(id, access, refresh) {
   const updateAccess = "UPDATE users SET access_token = $2 WHERE id = $1";
   const updateRefresh = "UPDATE users SET refresh_token = $3 WHERE id = $1";
   const params = [id, access, refresh];
