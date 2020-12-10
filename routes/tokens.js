@@ -10,11 +10,18 @@ function checkAuthentication(req, res, next) {
   }
 }
 
+function addTokensToSession(req, res, next) {
+  database.retrieveUserTokens(req.session.passport.user.id)
+  .then(tokens) {
+    req.session.tokens = tokens;
+    next();
+  }
+}
+
 router.get('/', checkAuthentication,
+  addTokensToSession,
   function(req, res, next) {
-    console.log('Retrieving tokens...');
-    req.session.tokens = database.retrieveUserTokens(req.session.passport.user.id);
-    res.redirect('loadPlaylist');
+    res.redirect('/loadPlaylist');
   }
 );
 

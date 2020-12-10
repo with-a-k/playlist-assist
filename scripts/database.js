@@ -79,7 +79,7 @@ async function retrieveUserTokens(spotify_id) {
   pool.query(select, params, function(err, result) {
     if (err) {
       console.log('Query error!');
-      console.log(err);
+      return err;
     } else {
       console.log('Adding tokens to session');
       return result.rows[0];
