@@ -13,7 +13,7 @@ function checkAuthentication(req, res, next) {
 router.get('/', checkAuthentication,
   function(req, res, next) {
     console.log('Retrieving tokens...');
-    res.session.tokens = database.retrieveUserTokens(req.session.passport.user.id);
+    req.session.tokens = database.retrieveUserTokens(req.session.passport.user.id);
     res.redirect('loadPlaylist');
   }
 );
