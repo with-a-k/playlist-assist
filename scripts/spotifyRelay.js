@@ -22,12 +22,11 @@ function getAuthorizationCode(req, res, next) {
 function getAccessToken(req, res, next) {
   spotifyApi.authorizationCodeGrant(req.query.code).then(function (data) {
     console.log('Code expires in: ' + data.body['expires_in']);
-    console.log(data.body);
     spotifyApi.setAccessToken(data.body['access_token']);
     spotifyApi.setRefreshToken(data.body['refresh_token']);
     req.session.access_token = data.body['access_token'];
     req.session.refresh_token = data.body['refresh_token'];
-    next();
+    function getProfile(req, res, next);
   },
   function(error) {
     console.log('Authorization error', error);
@@ -36,6 +35,18 @@ function getAccessToken(req, res, next) {
 
 function refreshAccessToken() {
 
+}
+
+function getProfile(req, res, next) {
+  spotifyApi.getMe(),then(function(data) {
+    console.log('This is the user logging in:');
+    console.log(data.body);
+    req.session.user = data.body;
+    next();
+  }),
+  function(error) {
+    console.log('Profile retrieve error', error);
+  };
 }
 
 module.exports = {
