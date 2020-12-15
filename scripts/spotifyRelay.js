@@ -16,7 +16,7 @@ const spotifyApi = new SpotifyWebApi({
 const authorizeURL = spotifyApi.createAuthorizeURL(scopes, state);
 
 function getAuthorizationCode(req, res, next) {
-  req.redirect(200, authorizeURL);
+  res.redirect(200, authorizeURL);
 }
 
 function getAccessToken(req, res, next) {
