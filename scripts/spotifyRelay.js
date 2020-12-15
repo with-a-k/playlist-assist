@@ -26,7 +26,7 @@ function getAccessToken(req, res, next) {
     spotifyApi.setRefreshToken(data.body['refresh_token']);
     req.session.access_token = data.body['access_token'];
     req.session.refresh_token = data.body['refresh_token'];
-    function getProfile(req, res, next);
+    getProfile(req, res, next);
   },
   function(error) {
     console.log('Authorization error', error);
