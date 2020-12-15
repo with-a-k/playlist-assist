@@ -33,6 +33,7 @@ async function findOrCreateUser(spotify_id, callback) {
         callback(insertion.insertId);
       });
     } else {
+      console.log(result.rows[0].id);
       callback(result.rows[0].id);
     }
   });
@@ -47,20 +48,20 @@ function updateUserTokens(id, access, refresh) {
 
   pool.query(updateAccess, accessParams, function(err, access) {
     if (err) {
-      console.log('Query error!');
+      console.log('Query error! [updateAccess]');
       console.log(err);
       return 500;
     }
-    return 200;
+    console.log('Access token updated.');
   });
 
   pool.query(updateRefresh, refreshParams, function(err, access) {
     if (err) {
-      console.log('Query error!');
+      console.log('Query error! [updateRefresh]');
       console.log(err);
       return 500;
     }
-    return 200;
+    console.log('Refresh token updated.');
   });
 }
 

@@ -1,6 +1,10 @@
 
 const spotifyApi = "https://api.spotify.com/v1";
 
+function refreshAccess() {
+
+}
+
 function getPlaylists(user_id, token) {
   $.ajax(`${spotifyApi}/users/${user_id}/playlists`, {
     method: 'GET',
