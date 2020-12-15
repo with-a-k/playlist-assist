@@ -12,6 +12,7 @@ router.get('/spotify', function(req, res, next) {
 
 router.get('/spotify/callback', function(req, res, next) {
   if (req.query.state === 'arbitrary') {
+    console.log(req.query);
     relay.getAccessToken(req.query.code);
   } else {
     console.log('State mismatch, got state ' + req.query.state);
