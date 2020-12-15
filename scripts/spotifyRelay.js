@@ -1,3 +1,5 @@
+const SpotifyWebApi = require('spotify-web-api-node');
+
 const scopes = ['playlist-read-private', 'playlist-read-collaborative',
   'playlist-modify-public', 'playlist-modify-private'],
   redirectUri = "https://immense-coast-83178.herokuapp.com/auth/spotify/callback",
