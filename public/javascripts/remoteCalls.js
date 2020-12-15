@@ -22,12 +22,3 @@ function getPlaylists(user_id, token) {
 function displayPlaylists(playlists, resultString, jqXHR) {
   console.log(playlists);
 }
-
-function refreshAccess(user_id, refresh) {
-  $.ajax(`https://accounts.spotify.com/api/token`, {
-    method: 'POST',
-    headers: {
-      Authorization: 
-    }
-  });
-}
