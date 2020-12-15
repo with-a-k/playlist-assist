@@ -6,7 +6,8 @@ router.get('/', function(req, res, next) {
   res.render('loadPlaylist', {
     title: 'Playlist Assist',
     user: 'ToFind',
-    tokens: 'Maybe not needed'
+    access_token: req.session.access_token,
+    refresh_token: req.session.refresh_token
   });
 });
 

@@ -18,7 +18,7 @@ function getPlaylists(user_id, token, refresh) {
       console.log(jqXHR);
       if (jqXHR.status === 401) {
         //This tells us our access token has expired.
-        function refreshAccess(refresh);
+        refreshAccess(refresh);
       }
     }
   });

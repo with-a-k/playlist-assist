@@ -19,11 +19,14 @@ function getAuthorizationCode(req, res, next) {
   res.redirect(authorizeURL);
 }
 
-function getAccessToken(code, next) {
-  spotifyApi.authorizationCodeGrant(code).then(function (data) {
+function getAccessToken(req, res, next) {
+  spotifyApi.authorizationCodeGrant(req.query.code).then(function (data) {
     console.log('Code expires in: ' + data.body['expires_in']);
+    console.log(data.body);
     spotifyApi.setAccessToken(data.body['access_token']);
     spotifyApi.setRefreshToken(data.body['refresh_token']);
+    req.session.access_token = data.body['access_token'];
+    req.session.refresh_token = data.body['refresh_token'];
     next();
   },
   function(error) {
