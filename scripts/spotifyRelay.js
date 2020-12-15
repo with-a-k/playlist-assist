@@ -24,7 +24,9 @@ function getAccessToken(req, res, next) {
     console.log('Code expires in: ' + data.body['expires_in']);
     spotifyApi.setAccessToken(data.body['access_token']);
     spotifyApi.setRefreshToken(data.body['refresh_token']);
-    return data.body;
+    req.session.access_token = data.body['access_token'];
+    req.session.refresh_token = data.body['refresh_token'];
+    next();
   },
   function(error) {
     console.log('Authorization error', error);

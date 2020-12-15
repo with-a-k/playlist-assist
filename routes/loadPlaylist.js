@@ -2,7 +2,15 @@ var express = require('express');
 var router = express.Router();
 const database = require('../scripts/database');
 
-router.get('/', function(req, res, next) {
+function confirmUser(req, res, next) {
+  if (req.session.user_id) {
+    next();
+  } else {
+    res.redirect('/');
+  }
+}
+
+router.get('/', confirmUser, function(req, res, next) {
   console.log(req.session);
   res.render('loadPlaylist', {
     title: 'Playlist Assist',
