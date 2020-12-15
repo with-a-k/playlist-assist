@@ -9,7 +9,7 @@ const scopes = ['playlist-read-private', 'playlist-read-collaborative',
 
 const spotifyApi = new SpotifyWebApi({
   redirectUri: redirectUri,
-  clientId: clientID,
+  clientId: clientId,
   clientSecret: clientSecret
 });
 
