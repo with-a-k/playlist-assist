@@ -38,7 +38,7 @@ function refreshAccessToken() {
 }
 
 function getProfile(req, res, next) {
-  spotifyApi.getMe(),then(function(data) {
+  spotifyApi.getMe().then(function(data) {
     console.log('This is the user logging in:');
     console.log(data.body);
     req.session.user = data.body;
