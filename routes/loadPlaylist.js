@@ -5,7 +5,7 @@ const database = require('../scripts/database');
 router.get('/', function(req, res, next) {
   res.render('loadPlaylist', {
     title: 'Playlist Assist',
-    user: 'ToFind',
+    user: req.session.user_id,
     access_token: req.session.access_token,
     refresh_token: req.session.refresh_token
   });

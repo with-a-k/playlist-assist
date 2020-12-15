@@ -41,7 +41,7 @@ function getProfile(req, res, next) {
   spotifyApi.getMe().then(function(data) {
     console.log('This is the user logging in:');
     console.log(data.body);
-    req.session.user = data.body;
+    req.session.user_id = data.body.id;
     next();
   }),
   function(error) {
