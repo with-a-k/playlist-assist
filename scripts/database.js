@@ -33,7 +33,7 @@ async function findOrCreateUser(spotify_id, callback) {
         callback(insertion.insertId);
       });
     } else {
-      console.log(result.rows[0].id);
+      console.log('Retrieving user...');
       callback(result.rows[0].id);
     }
   });
