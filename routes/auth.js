@@ -18,6 +18,6 @@ router.get('/spotify', function(req, res, next) {
     }));
 });
 
-router.get('/spotify/callback', (req, res, next) => res.send('Logged in?'););
+router.get('/spotify/callback', (req, res, next) => res.send('Logged in?'));
 
 module.exports = router;
