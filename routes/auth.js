@@ -16,7 +16,7 @@ router.get('/spotify', function(req, res, next) {
     state: 'arbitrary',
     scope: 'playlist-read-private playlist-read-collaborative playlist-modify-public playlist-modify-private',
   })
-  res.redirect('https://accounts.spotify.com/authorize/', params.toString());
+  axios.get('https://accounts.spotify.com/authorize/', params.toString());
 });
 
 router.get('/spotify/callback', (req, res, next) => res.send('Logged in?'));
