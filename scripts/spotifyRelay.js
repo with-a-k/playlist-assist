@@ -40,7 +40,7 @@ function refreshAccessToken() {
 function getProfile(req, res, next) {
   spotifyApi.getMe().then(function(data) {
     req.session.user_id = data.body.id;
-    next;
+    next();
   }),
   function(error) {
     console.log('Profile retrieve error', error);
@@ -51,5 +51,5 @@ module.exports = {
   getAuthorizationCode,
   getAccessToken,
   refreshAccessToken,
-
+  getProfile
 };
