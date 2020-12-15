@@ -21,6 +21,6 @@ router.get('/spotify/callback', function(req, res, next) {
   relay.getProfile(req, res, next);
 }, function (req, res, next) {
   res.redirect('/loadPlaylist');
-};
+});
 
 module.exports = router;
