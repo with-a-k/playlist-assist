@@ -11,18 +11,18 @@ body {
   background-color: #222222;
 }
 
-div.login-box {
+div.top-box {
   background-color: #777777;
   padding: 5%;
   margin: auto;
   width: 30%;
 }
 
-div.login-box h1, p {
+div.top-box h1, p {
   text-align: center;
   color: #eeffee;
 }
 
-div.login-box a {
+div.top-box a {
   color: #1ED760;
 }

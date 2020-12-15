@@ -11,7 +11,6 @@ function confirmUser(req, res, next) {
 }
 
 router.get('/', confirmUser, function(req, res, next) {
-  console.log(req.session);
   res.render('loadPlaylist', {
     title: 'Playlist Assist',
     user_id: req.session.user_id,

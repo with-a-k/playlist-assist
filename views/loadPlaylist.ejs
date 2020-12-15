@@ -10,14 +10,14 @@
     <script src='/javascripts/remoteCalls.js'></script>
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-    <p><%= user_id %></p>
-    <p><%= access_token %></p>
-    <p><%= refresh_token %></p>
+    <div class="top-box">
+      <h1><%= title %></h1>
+      <p>Welcome to <%= title %></p>
+      <p><%= user_id %></p>
+    </div>
     <script>
       $.when($.ready).then(function() {
-        console.log('Page loaded');
+        getPlaylists('<%= user_id %>', '<%= access_token %>', '<%= refresh_token %>');
       });
     </script>
   </body>
