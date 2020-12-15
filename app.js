@@ -15,7 +15,6 @@ const database = require('./scripts/database');
 var indexRouter = require('./routes/index');
 var authRouter = require('./routes/auth');
 var loadRouter = require('./routes/loadPlaylist');
-var tokenRouter = require('./routes/tokens');
 
 var app = express();
 
