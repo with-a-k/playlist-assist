@@ -19,7 +19,7 @@ function getAuthorizationCode(req, res, next) {
   req.redirect(200, authorizeURL);
 }
 
-function grantAuthorization(code) {
+function getAccessToken(req, res, next) {
   spotifyApi.authorizationCodeGrant(code).then(function (data) {
     console.log('Code expires in: ' + data.body['expires_in']);
     spotifyApi.setAccessToken(data.body['access_token']);
