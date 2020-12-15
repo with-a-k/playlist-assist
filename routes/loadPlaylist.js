@@ -3,6 +3,7 @@ var router = express.Router();
 const database = require('../scripts/database');
 
 router.get('/', function(req, res, next) {
+  console.log(req.session);
   res.render('loadPlaylist', {
     title: 'Playlist Assist',
     user_id: req.session.user_id,
