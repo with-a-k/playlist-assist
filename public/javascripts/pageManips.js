@@ -22,7 +22,6 @@ function displayPlaylists(response) {
     </li>`
   );
   $('.pseudolink').on("click", function(e) {
-    console.log(e.target.id);
     loadTracksFromPlaylist(e.target.id);
     e.preventDefault();
   });

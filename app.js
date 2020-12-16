@@ -9,7 +9,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var authRouter = require('./routes/auth');
-var loadRouter = require('./routes/loadPlaylist');
+var orgRouter = require('./routes/organize');
 var apiRouter = require('./routes/api');
 
 var app = express();
@@ -30,7 +30,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/loadPlaylist', loadRouter);
+app.use('/organize', orgRouter);
 app.use('/auth', authRouter);
 app.use('/api', apiRouter);
 

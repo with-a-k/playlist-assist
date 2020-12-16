@@ -29,9 +29,13 @@ function loadTracksFromPlaylist(playlistId) {
       method: 'GET',
       success: function(data) {
         console.log(data);
+        
       },
       error: function(jqXHR, textStatus, errorThrown) {
-        console.log(jqXHR);
+        if (jqXHR.status === 401) {
+          //This tells us our access token has expired.
+          refreshAccess(refresh);
+        }
       }
     });
   }

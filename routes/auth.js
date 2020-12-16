@@ -20,7 +20,7 @@ router.get('/spotify/callback', function(req, res, next) {
 }, function(req, res, next) {
   relay.getProfile(req, res, next);
 }, function (req, res, next) {
-  res.redirect('/loadPlaylist');
+  res.redirect('/organize');
 });
 
 module.exports = router;

@@ -48,7 +48,6 @@ function getProfile(req, res, next) {
 }
 
 function getTracksFromPlaylist(req, res, next) {
-  console.log('Get Tracks From Playlist:');
   spotifyApi.getPlaylistTracks(req.params.playlistId, {
     offset: 1
   }).then(
