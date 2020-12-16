@@ -21,7 +21,7 @@ function displayPlaylists(response) {
     `<li class="playlist">
       <h3>No Playlist</h3>
       <a href="#" onClick="function s(event) {
-          loadTracksFromPlaylist('none')
+          loadTracksFromPlaylist('none');
           event.preventDefault();
         };">
         Start without loading a playlist</a>
