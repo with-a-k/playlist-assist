@@ -64,6 +64,7 @@ function getAnalysis() {
     alert('Maximum of 100 tracks. You have ' + tracksData.length);
     return;
   }
+  console.log(tracksData);
   $.ajax(`${playlistAssistApi}/analysis`, {
     method: 'GET',
     data: tracksData,
