@@ -41,8 +41,8 @@ function showTrackSelector(startingTracks) {
     $('.added-tracks').append(
       `<li class="track-added" id=${track.id}>
         <h3>${track.trackName}</h3>
-        <h4>Artists: ${trackObject.artistNames.join(', ')}</h4>
-        <h4>Album: ${trackObject.albumName}</h4>
+        <h4>Artists: ${track.artistNames.join(', ')}</h4>
+        <h4>Album: ${track.albumName}</h4>
         <button class="pseudolink remove-track">Remove from List</button>
       </li>`
     );
