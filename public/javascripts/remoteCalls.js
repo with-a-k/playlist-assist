@@ -47,7 +47,7 @@ function getAnalysis() {
   let tracksData = Object.values($('.track-added')).filter(function(track) {
     return (typeof track === 'object');
   }).map(function(track) {
-    if (track.prototype.concat) {
+    if (!track.children) {
       return;
     }
     trackName = track.children.item(0).innerHTML;
