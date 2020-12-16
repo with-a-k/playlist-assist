@@ -11,7 +11,7 @@ function confirmUser(req, res, next) {
 }
 
 router.get('/', confirmUser, function(req, res, next) {
-  console.log(req.session.tracksData)
+    console.log(req.session.tracksData)
     let tracksData = req.session.tracksData.forEach(function (track, index) {
       track.energy = req.session.tracksFeatures.energy;
       track.danceability = req.session.tracksFeatures.danceability;
