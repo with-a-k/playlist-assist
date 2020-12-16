@@ -16,12 +16,13 @@
       <p>Welcome to <%= title %>, <%= user_id %></p>
     </div>
     <div class="track-features">
-
+      <% tracksData.forEach(function(track) { %>
+        <li class="features" id=<%=track.id%>>
+          <h3 class="track-name"><%=track.trackName%></h3>
+          <h4 class="artist-album">Artists: <%=track.artistNames.join(', ')%> | Album: <%=track.albumName%></h4>
+          <h4 class="features">Danceability: <%=track.danceability%> | Energy: <%=track.energy%> | Valence: <%=track.valence%></h4>
+        </li>
+      <% }) %>
     </div>
-    <script>
-      $.when($.ready).then(function() {
-        displayFeatures(<%= tracksData %>]);
-      });
-    </script>
   </body>
 </html>
