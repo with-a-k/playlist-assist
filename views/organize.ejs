@@ -18,6 +18,26 @@
     <div class="playlists">
 
     </div>
+    <div class="track-selector" hidden>
+      <div class="track-search">
+        <div class="search-track-name">
+          <input type="text"></input>
+          <button onclick="">Search by Track Title</button>
+        </div>
+        <div class="search-artist-name">
+          <input type="text"></input>
+          <button onclick="">Search by Artist Name</button>
+        </div>
+        <div class="search-album-name">
+          <input type="text"></input>
+          <button onclick="">Search by Album Name</button>
+        </div>
+      </div>
+      <div class="search-results">
+      </div>
+      <div class="added-tracks">
+      </div>
+    </div>
     <script>
       $.when($.ready).then(function() {
         getPlaylists('<%= user_id %>', '<%= access_token %>', '<%= refresh_token %>');

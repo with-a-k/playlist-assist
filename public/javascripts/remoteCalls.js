@@ -28,8 +28,7 @@ function loadTracksFromPlaylist(playlistId) {
     $.ajax(`${playlistAssistApi}/playlist/${playlistId}`, {
       method: 'GET',
       success: function(data) {
-        console.log(data);
-        
+        showTrackSelector(data);
       },
       error: function(jqXHR, textStatus, errorThrown) {
         if (jqXHR.status === 401) {
@@ -38,5 +37,7 @@ function loadTracksFromPlaylist(playlistId) {
         }
       }
     });
+  } else {
+    showTrackSelector([]);
   }
 }
