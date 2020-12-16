@@ -74,7 +74,6 @@ function getAnalysis() {
       tracksData
     },
     success: function(data) {
-      console.log(data);
       window.location = 'https://immense-coast-83178.herokuapp.com/analysis';
     },
     error: function(jqXHR, textStatus, errorThrown) {
