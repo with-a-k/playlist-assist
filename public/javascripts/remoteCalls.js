@@ -1,5 +1,5 @@
 const spotifyApi = "https://api.spotify.com/v1";
-const playlistAssistApi = "https://immense-coast-83178.herokuapp.com/api/";
+const playlistAssistApi = "https://immense-coast-83178.herokuapp.com/api";
 
 function refreshAccess() {
 
