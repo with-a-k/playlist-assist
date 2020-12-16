@@ -44,10 +44,12 @@ function loadTracksFromPlaylist(playlistId) {
 
 function getAnalysis() {
   console.log($('.track-added'));
+  let tracks = $('.track-added');
   let tracksData = Object.keys($('.track-added')).map(function(key) {
     if (isNaN(parseInt(key))) {
       return;
     }
+    track = tracks[key];
     console.log(track.children);
     trackName = track.children.item(0).innerHTML;
     artistList = track.children.item(1).innerHTML.slice(9);
