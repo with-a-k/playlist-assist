@@ -45,15 +45,9 @@ function loadTracksFromPlaylist(playlistId) {
 function getAnalysis() {
   let tracksData = Object.values($('.track-added')).map(function(track) {
     console.log(track);
-    trackName = track.children.filter(function(child) {
-      return child.class == 'track-name';
-    }).innerHTML;
-    artistList = track.children.filter(function(child) {
-      return child.class == 'artist-list';
-    }).innerHTML.slice(9);
-    albumName = track.children.filter(function(child) {
-      return child.class == 'album-name';
-    }).innerHTML.slice(7);
+    trackName = track.children.item(0).innerHTML;
+    artistList = track.children.item(1).innerHTML.slice(9);
+    albumName = track.children.item(2).innerHTML.slice(7);
     return {
       id: track.id,
       trackName: trackName,
