@@ -48,8 +48,7 @@ function showTrackSelector(startingTracks) {
     );
   });
   $('.pseudolink.remove-track').on('click', function (e) {
-    console.log(e.target);
-
+    e.target.parentNode().remove();
   });
   $('.track-selector:hidden').show();
 }
