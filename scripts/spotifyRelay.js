@@ -60,8 +60,8 @@ function getTracksFromPlaylist(req, res, next) {
 function getTrackAnalysis(req, res, next) {
   let trackData = req.query.tracksData;
   let trackIds = trackData.map(track => track.id);
-  console.log('In getTrackAnalysis');
   spotifyApi.getAudioFeaturesForTracks(trackIds).then(function(data) {
+    console.log('Audio features:');
     console.log(data.body.audio_features);
     req.session.tracksFeatures = data.body.audio_features;
     req.session.tracksData = trackData;
