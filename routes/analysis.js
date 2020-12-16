@@ -11,14 +11,16 @@ function confirmUser(req, res, next) {
 }
 
 router.get('/', confirmUser, function(req, res, next) {
-    let tracksData = req.session.tracksData.forEach(function (track, index) {
-      id = track.id,
-      trackName = track.trackName,
-      artistList = track.artistList,
-      albumName = track.albumName
-      energy = req.session.tracksFeatures[index].energy;
-      danceability = req.session.tracksFeatures[index].danceability;
-      valence = req.session.tracksFeatures[index].valence;
+    let tracksData = req.session.tracksData.map(function (track, index) {
+      return {
+        id: track.id,
+        trackName: track.trackName,
+        artistList: track.artistList,
+        albumName: track.albumName,
+        energy: req.session.tracksFeatures[index].energy,
+        danceability: req.session.tracksFeatures[index].danceability,
+        valence: req.session.tracksFeatures[index].valence
+      }
     });
     console.log(tracksData);
     res.render('analysis', {
