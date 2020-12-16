@@ -11,7 +11,6 @@ function confirmUser(req, res, next) {
 }
 
 router.get('/', confirmUser, function(req, res, next) {
-    console.log(req.session.tracksFeatures);
     let tracksData = req.session.tracksData.forEach(function (track, index) {
       id = track.id,
       trackName = track.trackName,
@@ -21,6 +20,7 @@ router.get('/', confirmUser, function(req, res, next) {
       danceability = req.session.tracksFeatures[index].danceability;
       valence = req.session.tracksFeatures[index].valence;
     });
+    console.log(tracksData);
     res.render('analysis', {
       title: 'Playlist Assist',
       user_id: req.session.user_id,
