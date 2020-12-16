@@ -44,6 +44,7 @@ function loadTracksFromPlaylist(playlistId) {
 
 function getAnalysis() {
   let tracksData = $('.track-added').map(function(track) {
+    console.log(track);
     trackName = track.children.filter(function(child) {
       return child.class == 'track-name';
     }).innerHTML;
