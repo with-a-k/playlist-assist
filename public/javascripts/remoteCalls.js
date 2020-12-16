@@ -1,6 +1,5 @@
-
 const spotifyApi = "https://api.spotify.com/v1";
-const playlistAssistApi = "";
+const playlistAssistApi = "https://immense-coast-83178.herokuapp.com/api/";
 
 function refreshAccess() {
 
@@ -24,6 +23,14 @@ function getPlaylists(user_id, token, refresh) {
   });
 }
 
-function displayPlaylists(playlists, resultString, jqXHR) {
-  console.log(playlists);
+function loadTracksFromPlaylist(playlistId) {
+  $.ajax(`${playlistAssistApi}/playlist/${playlistId}`, {
+    method: 'GET',
+    success: function() {
+      console.log('loadTracksFromPlaylist succeeded');
+    },
+    error: function(jqXHR, textStatus, errorThrown) {
+      console.log(jqXHR);
+    }
+  });
 }

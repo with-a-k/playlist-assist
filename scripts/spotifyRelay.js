@@ -47,9 +47,21 @@ function getProfile(req, res, next) {
   };
 }
 
+function getTracksFromPlaylist(req, res, next) {
+  let playlistId = req.params.playlistId;
+  spotifyApi.getPlaylistTracks(playlistId, {
+    offset: 1
+  }).then(
+    function(data) {
+      console.log(data);
+    }
+  )
+}
+
 module.exports = {
   getAuthorizationCode,
   getAccessToken,
   refreshAccessToken,
-  getProfile
+  getProfile,
+  getTracksFromPlaylist
 };
