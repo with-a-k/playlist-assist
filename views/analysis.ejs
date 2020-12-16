@@ -16,13 +16,12 @@
       <p>Welcome to <%= title %>, <%= user_id %></p>
     </div>
     <div class="track-features">
-      <% tracksData.forEach(function(track, index) {
-        console.log(track);
-        console.log(tracksFeatures[index]);
-      }) %>
+
     </div>
     <script>
-
+      $.when($.ready).then(function() {
+        displayFeatures(<%= tracksData %>, <%= tracksFeatures %>);
+      });
     </script>
   </body>
 </html>

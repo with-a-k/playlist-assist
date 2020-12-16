@@ -52,3 +52,20 @@ function showTrackSelector(startingTracks) {
   });
   $('.track-selector:hidden').show();
 }
+
+function displayFeatures(tracksData, tracksFeatures) {
+  let trackFeatures;
+  tracksData.forEach(function(track, index) {
+    trackFeatures = tracksFeatures.index;
+    track.danceability = trackFeatures.danceability;
+    track.energy = trackFeatures.energy;
+    track.valence = trackFeatures.valence;
+    $('.track-features').append(
+      `<li class="features" id=${track.id}>
+        <h3 class="track-name">${track.trackName}</h3>
+        <h4 class="artist-album">Artists: ${track.artistNames.join(', ')} | Album: ${track.albumName}</h4>
+        <h4 class="features">Danceability: ${track.danceability} | Energy: ${track.energy} | Valence: ${track.valence}</h4>
+      </li>`
+    )
+  });
+}
