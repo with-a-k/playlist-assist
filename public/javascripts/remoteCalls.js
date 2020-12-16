@@ -43,7 +43,7 @@ function loadTracksFromPlaylist(playlistId) {
 }
 
 function getAnalysis() {
-  console.log(Object.values($('.track-added')));
+  console.log($('.track-added'));
   let tracksData = Object.values($('.track-added')).filter(function(track) {
     console.log(track);
     console.log(typeof track);
