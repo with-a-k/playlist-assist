@@ -44,10 +44,8 @@ function loadTracksFromPlaylist(playlistId) {
 
 function getAnalysis() {
   console.log($('.track-added'));
-  let tracksData = Object.values($('.track-added')).filter(function(track) {
-    return (typeof track === 'object');
-  }).map(function(track) {
-    if (track.children == undefined) {
+  let tracksData = Object.keys($('.track-added')).map(function(key) {
+    if (isNaN(parseInt(key))) {
       return;
     }
     console.log(track.children);
