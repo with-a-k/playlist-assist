@@ -27,8 +27,8 @@ function loadTracksFromPlaylist(playlistId) {
   if (playlistId !== 'none') {
     $.ajax(`${playlistAssistApi}/playlist/${playlistId}`, {
       method: 'GET',
-      success: function() {
-        console.log('loadTracksFromPlaylist succeeded');
+      success: function(data) {
+        console.log('data');
       },
       error: function(jqXHR, textStatus, errorThrown) {
         console.log(jqXHR);
