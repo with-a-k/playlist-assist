@@ -9,7 +9,7 @@ function displayPlaylists(response) {
     $('.playlists').append(
       `<li class="playlist">
         <h3>${playlistInfo.name}</h3>
-        <a href="#" onClick="function l(event) {
+        <p class="psuedolink" onclick="function l(event) {
             loadTracksFromPlaylist('${playlistInfo.playlist_id}');
           };">
           Start with this playlist</a>
@@ -19,7 +19,7 @@ function displayPlaylists(response) {
   $('.playlists').append(
     `<li class="playlist">
       <h3>No Playlist</h3>
-      <a href="#" onClick="function s(event) {
+      <p class="psuedolink" onclick="function s(event) {
           loadTracksFromPlaylist('none');
         };">
         Start without loading a playlist</a>
