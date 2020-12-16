@@ -70,7 +70,9 @@ function getAnalysis() {
   console.log(tracksData);
   $.ajax(`${playlistAssistApi}/analysis`, {
     method: 'GET',
-    data: tracksData,
+    data: {
+      tracksData
+    },
     success: function(data) {
       console.log('Got return from API analysis');
       //window.location = 'https://immense-coast-83178.herokuapp.com/analysis';
