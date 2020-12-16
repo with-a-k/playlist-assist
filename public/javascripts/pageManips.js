@@ -9,16 +9,16 @@ function displayPlaylists(response) {
     $('.playlists').append(
       `<li class="playlist">
         <h3>${playlistInfo.name}</h3>
-        <a href="#" class="psuedolink" id="${playlistInfo.playlist_id}">
-          Start with this playlist</a>
+        <button class="psuedolink" id="${playlistInfo.playlist_id}">
+          Start with this playlist</button>
       </li>`
     );
   });
   $('.playlists').append(
     `<li class="playlist">
       <h3>No Playlist</h3>
-      <a href="#" class="psuedolink" id="none">
-        Start without loading a playlist</a>
+      <button class="psuedolink" id="none">
+        Start without loading a playlist</button>
     </li>`
   );
   $('.pseudolink').on("click", function(e) {
