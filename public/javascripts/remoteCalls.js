@@ -50,6 +50,7 @@ function getAnalysis() {
     if (track.children == undefined) {
       return;
     }
+    console.log(track.children);
     trackName = track.children.item(0).innerHTML;
     artistList = track.children.item(1).innerHTML.slice(9);
     albumName = track.children.item(2).innerHTML.slice(7);
