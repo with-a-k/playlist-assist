@@ -43,8 +43,8 @@ function loadTracksFromPlaylist(playlistId) {
 }
 
 function getAnalysis() {
+  console.log(Object.values($('.track-added')));
   let tracksData = Object.values($('.track-added')).map(function(track) {
-    console.log(track);
     trackName = track.children.item(0).innerHTML;
     artistList = track.children.item(1).innerHTML.slice(9);
     albumName = track.children.item(2).innerHTML.slice(7);
