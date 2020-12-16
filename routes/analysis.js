@@ -22,7 +22,6 @@ router.get('/', confirmUser, function(req, res, next) {
         valence: req.session.tracksFeatures[index].valence
       }
     });
-    console.log(tracksData);
     res.render('analysis', {
       title: 'Playlist Assist',
       user_id: req.session.user_id,
