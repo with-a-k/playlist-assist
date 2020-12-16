@@ -24,7 +24,6 @@ function getPlaylists(user_id, token, refresh) {
 }
 
 function loadTracksFromPlaylist(playlistId) {
-  console.log('Loading tracks from playlist...');
   if (playlistId !== 'none') {
     $.ajax(`${playlistAssistApi}/playlist/${playlistId}`, {
       method: 'GET',
