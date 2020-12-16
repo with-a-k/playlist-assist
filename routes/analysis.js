@@ -11,12 +11,17 @@ function confirmUser(req, res, next) {
 }
 
 router.get('/', confirmUser, function(req, res, next) {
-    console.log(req.session.tracksData)
+    console.log(req.session.tracksFeatures);
     let tracksData = req.session.tracksData.forEach(function (track, index) {
-      track.energy = req.session.tracksFeatures.energy;
-      track.danceability = req.session.tracksFeatures.danceability;
-      track.valence = req.session.tracksFeatures.valence;
+      id = track.id,
+      trackName = track.trackName,
+      artistList = track.artistList,
+      albumName = track.albumName
+      energy = req.session.tracksFeatures[index].energy;
+      danceability = req.session.tracksFeatures[index].danceability;
+      valence = req.session.tracksFeatures[index].valence;
     });
+    console.log(tracksData);
     res.render('analysis', {
       title: 'Playlist Assist',
       user_id: req.session.user_id,
