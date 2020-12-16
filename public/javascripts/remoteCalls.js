@@ -43,7 +43,7 @@ function loadTracksFromPlaylist(playlistId) {
 }
 
 function getAnalysis() {
-  let tracksData = $('track-added').map(function(track) {
+  let tracksData = $('.track-added').map(function(track) {
     trackName = track.children.filter(function(child) {
       return child.class == 'track-name';
     }).innerHTML;
