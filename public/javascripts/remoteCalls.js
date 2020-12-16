@@ -60,6 +60,8 @@ function getAnalysis() {
       artistList: artistList,
       albumName: albumName
     }
+  }).filter(function(track) {
+    return typeof(track) != "undefined";
   });
   if (tracksData.length > 100) {
     alert('Maximum of 100 tracks. You have ' + tracksData.length);
