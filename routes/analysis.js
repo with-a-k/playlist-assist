@@ -16,7 +16,8 @@ router.get('/', confirmUser, function(req, res, next) {
       user_id: req.session.user_id,
       access_token: req.session.access_token,
       refresh_token: req.session.refresh_token,
-      trackData: req.session.audio_features
+      trackData: req.session.tracksData,
+      trackFeatures: req.session.tracksFeatures
     });
   }
 );
