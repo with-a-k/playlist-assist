@@ -7,7 +7,7 @@ router.get('/', (req, res, next) => res.redirect('/'));
 router.get('/playlist/:playlistId', relay.getTracksFromPlaylist,
   function(req, res, next) {
     console.log(res);
-    res.send({state: 'returned'});
+    res.send();
   }
 );
 

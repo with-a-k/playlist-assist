@@ -53,7 +53,7 @@ function getTracksFromPlaylist(req, res, next) {
     offset: 1
   }).then(
     function(data) {
-      console.log(data);
+      res.send(data.body.items);
     }
   )
 }
