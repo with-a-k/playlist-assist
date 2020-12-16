@@ -20,6 +20,8 @@
     </div>
     <script>
       $.when($.ready).then(function() {
+        console.log(<%= tracksData %>);
+        console.log(<%= tracksFeatures %>);
         displayFeatures(<%= tracksData %>], <%= tracksFeatures %>);
       });
     </script>
