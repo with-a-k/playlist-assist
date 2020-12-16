@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+const relay = require('../scripts/spotifyRelay');
 
 function confirmUser(req, res, next) {
   if (req.session.user_id) {
