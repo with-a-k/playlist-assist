@@ -57,10 +57,15 @@ function getTracksFromPlaylist(req, res, next) {
   )
 }
 
+function getTrackAnalysis(req, res, next) {
+  console.log(res);
+}
+
 module.exports = {
   getAuthorizationCode,
   getAccessToken,
   refreshAccessToken,
   getProfile,
-  getTracksFromPlaylist
+  getTracksFromPlaylist,
+  getTrackAnalysis
 };
