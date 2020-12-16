@@ -46,7 +46,7 @@ function getAnalysis() {
   console.log(Object.values($('.track-added')));
   let tracksData = Object.values($('.track-added')).map(function(track) {
     if (typeof track !== 'HTMLElement') {
-      continue;
+      return false;
     }
     trackName = track.children.item(0).innerHTML;
     artistList = track.children.item(1).innerHTML.slice(9);
