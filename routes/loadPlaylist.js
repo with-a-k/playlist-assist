@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-const database = require('../scripts/database');
 
 function confirmUser(req, res, next) {
   if (req.session.user_id) {
