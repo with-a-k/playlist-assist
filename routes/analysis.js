@@ -9,14 +9,16 @@ function confirmUser(req, res, next) {
   }
 }
 
-router.get('/', confirmUser, function(req, res, next) {
-  res.render('analysis', {
-    title: 'Playlist Assist',
-    user_id: req.session.user_id,
-    access_token: req.session.access_token,
-    refresh_token: req.session.refresh_token,
-    trackData: []
-  });
-});
+router.get('/', confirmUser, getTrackAnalysis,
+  function(req, res, next) {
+    res.render('analysis', {
+      title: 'Playlist Assist',
+      user_id: req.session.user_id,
+      access_token: req.session.access_token,
+      refresh_token: req.session.refresh_token,
+      trackData: []
+    });
+  }
+);
 
 module.exports = router;

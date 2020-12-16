@@ -40,9 +40,9 @@ function showTrackSelector(startingTracks) {
   simpleInfo.forEach(function (track) {
     $('.added-tracks').append(
       `<li class="track-added" id=${track.id}>
-        <h3>${track.trackName}</h3>
-        <h4>Artists: ${track.artistNames.join(', ')}</h4>
-        <h4>Album: ${track.albumName}</h4>
+        <h3 class="track-name">${track.trackName}</h3>
+        <h4 class="artist-list">Artists: ${track.artistNames.join(', ')}</h4>
+        <h4 class="album-name">Album: ${track.albumName}</h4>
         <button class="pseudolink remove-track">Remove from List</button>
       </li>`
     );

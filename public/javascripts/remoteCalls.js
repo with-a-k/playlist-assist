@@ -41,3 +41,40 @@ function loadTracksFromPlaylist(playlistId) {
     showTrackSelector([]);
   }
 }
+
+function getAnalysis() {
+  let tracksData = $('track-added').map(function(track) {
+    trackName = track.children.filter(function(child) {
+      return child.class == 'track-name';
+    }).innerHTML;
+    artistList = track.children.filter(function(child) {
+      return child.class == 'artist-list';
+    }).innerHTML.slice(9);
+    albumName = track.children.filter(function(child) {
+      return child.class == 'album-name';
+    }).innerHTML.slice(7);
+    return {
+      id: track.id,
+      trackName: trackName,
+      artistList: artistList,
+      albumName: albumName
+    }
+  });
+  if (tracksData.length > 100) {
+    alert('Maximum of 100 tracks. You have ' + tracksData.length);
+    return;
+  }
+  $.ajax(`${playlistAssistApi}/analysis`, {
+    method: 'GET',
+    data: tracksData,
+    success: function(data) {
+      window.location = 'https://immense-coast-83178.herokuapp.com/analysis';
+    },
+    error: function(jqXHR, textStatus, errorThrown) {
+      if (jqXHR.status === 401) {
+        //This tells us our access token has expired.
+        refreshAccess(refresh);
+      }
+    }
+  })
+}
