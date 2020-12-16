@@ -58,7 +58,12 @@ function getTracksFromPlaylist(req, res, next) {
 }
 
 function getTrackAnalysis(req, res, next) {
-  console.log(req);
+  let trackData = req.query.data.tracksData;
+  let trackIds = trackData.map(track => track.id);
+  spotifyApi.getAudioFeaturesForTracks(trackIds).then(function(data) {
+    console.log(data);
+    res.send(data);
+  });
 }
 
 module.exports = {

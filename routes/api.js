@@ -10,9 +10,10 @@ router.get('/playlist/:playlistId', relay.getTracksFromPlaylist,
   }
 );
 
-router.get('/analysis', function(req, res, next) {
-  console.log(req.query);
-  res.send();
-});
+router.get('/analysis', relay.getTrackAnalysis,
+  function(req, res, next) {
+    res.send();
+  }
+);
 
 module.exports = router;
