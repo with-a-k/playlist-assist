@@ -58,7 +58,7 @@ function getTracksFromPlaylist(req, res, next) {
 }
 
 function getTrackAnalysis(req, res, next) {
-  console.log(res);
+  console.log(req);
 }
 
 module.exports = {
