@@ -10,7 +10,7 @@ function confirmUser(req, res, next) {
   }
 }
 
-router.get('/', confirmUser, getTrackAnalysis,
+router.get('/', confirmUser, relay.getTrackAnalysis,
   function(req, res, next) {
     res.render('analysis', {
       title: 'Playlist Assist',
