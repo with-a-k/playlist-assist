@@ -1,6 +1,6 @@
-function displayPlaylists(playlists) {
+function displayPlaylists(response) {
   $('.playlists').empty();
-  console.log(playlists);
+  let playlists = response.items;
   playlists.forEach(function(playlist) {
     let playlistInfo = {
       name: playlist.name,
